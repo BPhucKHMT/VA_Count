@@ -1,0 +1,47 @@
+[20:16:40.113603] base lr: 3.20e-04
+[20:16:40.115083] actual lr: 1.00e-05
+[20:16:40.116101] accumulate grad iterations: 1
+[20:16:40.116649] effective batch size: 8
+[20:16:40.117709] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0.05
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0.0
+)
+C:\uit_HK5\Cs331\VA-Count\util\misc.py:269: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self._scaler = torch.cuda.amp.GradScaler()
+[20:16:40.119886] Start training for 1000 epochs   -   rank 0
+Train [e. 0 - r. 0]:   0%|                                                                                               | 0/458 [00:00<?, ?it/s]C:\uit_HK5\Cs331\VA-Count\FSC_train.py:336: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\uit_HK5\Cs331\VA-Count\FSC_train.py:348: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+Train [e. 0 - r. 0]: 100%|█████████████████████████████████████████████████████████████████████████████████████| 458/458 [15:17<00:00,  2.00s/it]
+Val [e. 0 - r. 0]:   0%|                                                                                                 | 0/161 [00:00<?, ?it/s]C:\uit_HK5\Cs331\VA-Count\FSC_train.py:418: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+Val [e. 0 - r. 0]: 100%|███████████████████████████████████████████████████████████████████████████████████████| 161/161 [04:08<00:00,  1.54s/it]
+[20:36:11.906375] checkpoint sent to W&B (if)
+[20:36:22.419120] checkpoint sent to W&B (if)
+[20:36:22.424451] [Train Epoch #0] - MAE:   inf, RMSE:   inf
+[20:36:22.427462] [Val Epoch #0] - MAE: 67.74, RMSE: 99.98, NAE:  3.08
+Train [e. 1 - r. 0]:  62%|█████████████████████████████████████████████████████                                | 286/458 [06:14<03:45,  1.31s/it]

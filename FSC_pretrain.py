@@ -21,7 +21,10 @@ import wandb
 import timm
 
 assert "0.4.5" <= timm.__version__ <= "0.4.9"  # version check
-import timm.optim.optim_factory as optim_factory
+try:
+    import timm.optim.optim_factory as optim_factory
+except ImportError:
+    import timm.optim as optim_factory
 
 import util.misc as misc
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
@@ -240,7 +243,18 @@ def main(args):
         model_without_ddp = model.module
 
     # following timm: set wd as 0 for bias and norm layers
-    param_groups = optim_factory.add_weight_decay(model_without_ddp, args.weight_decay)
+    if hasattr(optim_factory, 'add_weight_decay'):
+        param_groups = optim_factory.add_weight_decay(model_without_ddp, args.weight_decay)
+    else:
+        # Fallback for newer timm versions
+        param_groups = [
+            {'params': [p for n, p in model_without_ddp.named_parameters() 
+                       if p.requires_grad and not ('bias' in n or 'norm' in n)],
+             'weight_decay': args.weight_decay},
+            {'params': [p for n, p in model_without_ddp.named_parameters() 
+                       if p.requires_grad and ('bias' in n or 'norm' in n)],
+             'weight_decay': 0.0}
+        ]
     optimizer = torch.optim.AdamW(param_groups, lr=args.lr, betas=(0.9, 0.95))
     print(optimizer)
     loss_scaler = NativeScaler()

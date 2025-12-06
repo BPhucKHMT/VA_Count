@@ -117,10 +117,10 @@ class ResNetClassifier(nn.Module):
         return self.resnet50(images)
 
 # 5. 训练和测试
-device = torch.device("cuda:5" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 clip_model, _ = clip.load("ViT-B/32", device=device)
-# model = ClipClassifier(clip_model).to(device)
-model = ResNetClassifier().to(device)
+model = ClipClassifier(clip_model).to(device)
+# model = ResNetClassifier().to(device)
 
 optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 criterion = nn.CrossEntropyLoss()

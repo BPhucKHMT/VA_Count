@@ -110,8 +110,9 @@ def main(args):
 
     # 根据 root_path 设置路径
     text_file_path = os.path.join(args.root_path, "ImageClasses_FSC147.txt")
+    #text_file_path = "./data/FSC147/test_image.txt"
     dataset_path = os.path.join(args.root_path, "images_384_VarV2")
-    input_json_path = os.path.join(args.root_path, "annotation_FSC147_384_old.json")
+    input_json_path = os.path.join(args.root_path, "annotation_FSC147_384.json")
     output_json_path = os.path.join(args.root_path, "annotation_FSC147_pos.json")
     
     os.makedirs(output_folder, exist_ok=True)

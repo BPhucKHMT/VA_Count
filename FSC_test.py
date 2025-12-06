@@ -18,11 +18,13 @@ import torchvision.transforms.functional as TF
 import timm
 from util.FSC147 import transform_train, transform_val
 from tqdm import tqdm
-assert "0.4.5" <= timm.__version__ <= "0.4.9"  # version check
 
 import util.misc as misc
 import models_mae_cross
 
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 
 def get_args_parser():
     parser = argparse.ArgumentParser('MAE pre-training', add_help=False)
@@ -39,9 +41,9 @@ def get_args_parser():
     # Dataset parameters
     parser.add_argument('--data_path', default='./data/FSC147/', type=str,
                         help='dataset path')
-    parser.add_argument('--anno_file', default='annotation_FSC147_positive.json', type=str,
+    parser.add_argument('--anno_file', default='annotation_FSC147_pos.json', type=str,
                         help='annotation json file')
-    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg2.json', type=str,
+    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg.json', type=str,
                         help='annotation json file')
     parser.add_argument('--data_split_file', default='Train_Test_Val_FSC_147.json', type=str,
                         help='data split json file')
@@ -300,10 +302,10 @@ def main(args):
             sub_val_gt_density = val_gt_density[i:i+sub_batch_size]
 
             with torch.no_grad():
-                with torch.cuda.amp.autocast():
+                with torch.amp.autocast('cuda'):
                     sub_val_output = model(sub_val_samples, val_boxes[i:i+sub_batch_size], 3)
             with torch.no_grad():
-                with torch.cuda.amp.autocast():
+                with torch.amp.autocast('cuda'):
                     neg_sub_val_output = model(sub_val_samples, neg_val_boxes[i:i+sub_batch_size], 3)
                 # output = torch.clamp((sub_val_output-neg_sub_val_output),min=0)
                 sub_val_pred_cnt = torch.abs(sub_val_output.sum()) / 60

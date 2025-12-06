@@ -1,0 +1,4 @@
+[20:10:18.859187] base lr: 3.20e-04
+[20:10:18.860910] actual lr: 1.00e-05
+[20:10:18.861425] accumulate grad iterations: 1
+[20:10:18.862456] effective batch size: 8

@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 import random
-
+print(os.getcwd())
 def is_image_file(filename):
     """判断文件是否是图像文件"""
     image_extensions = ['.jpg', '.jpeg', '.png', '.bmp', '.gif']  # 支持的图像文件扩展名列表
