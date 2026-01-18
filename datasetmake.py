@@ -20,6 +20,41 @@ def random_crop(img, size=(256, 256)):
 
     return img.crop((x_left, y_upper, x_left + crop_width, y_upper + crop_height))
 
+import json 
+def create_box_image_dataset():
+    # load các tên ảnh tập train
+    img_dir = './data/FSC147/images_384_VarV2'
+    anno_file = './data/FSC147/annotation_FSC147_384.json'
+    train_txt_name_path = './data/FSC147/train.txt'
+    with open(train_txt_name_path, 'r') as f:
+        train_img_names = f.read().splitlines()
+    train_img_set = set(train_img_names)
+    # load annotation
+    with open(anno_file, 'r') as f:
+        annotations = json.load(f)
+    # lọc annotation chỉ giữ ảnh trong tập train
+    train_annotations = {k: v for k, v in annotations.items() if k in train_img_set}
+    # tạo folder lưu ảnh examplar
+    exemplar_folder = './data/FSC147/box'
+    if not os.path.exists(exemplar_folder):
+        os.makedirs(exemplar_folder)
+    # duyệt qua từng ảnh trong tập train
+    for img_name, anno in train_annotations.items():
+        img_path = os.path.join(img_dir, img_name)
+        img = Image.open(img_path)
+        boxes = anno['box_examples_coordinates']
+        # lưu từng box thành ảnh riêng
+        for i, box in enumerate(boxes):
+            x1, y1 = box[0]
+            x2, y2 = box[2]
+            box_img = img.crop((x1, y1, x2, y2))
+            box_img_save_path = os.path.join(exemplar_folder, f"{img_name[:-4]}_box_{i}.jpg")
+            box_img.save(box_img_save_path)
+
+
+create_box_image_dataset() # tạo box
+    
+
 # 文件夹路径设置（根据实际情况修改）
 single_object_folder = './data/FSC147/box'
 multiple_objects_folder = './data/FSC147/images_384_VarV2'

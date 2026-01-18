@@ -13,6 +13,10 @@ classify/
 # Model checkpoints
 data/checkpoint_FSC.pth
 data/checkpoint.pth
+data/checkpoint__finetuning_dino_prompt.pth
+data/checkpoint__finetuning_yolo.pth
+data/checkpoint__finetuning_yolo_noprompt.pth
+data/checkpoint.pth
 
 # Python cache
 __pycache__/
@@ -39,3 +43,9 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+#other
+visualizations/
+visualizations_test/
+GroundingDINO/
+yolov8x-worldv2.pt

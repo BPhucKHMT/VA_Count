@@ -17,10 +17,8 @@ import wandb
 import timm
 from tqdm import tqdm
 
-try:
-    import timm.optim.optim_factory as optim_factory
-except ImportError:
-    import timm.optim as optim_factory
+assert "0.4.5" <= timm.__version__ <= "0.4.9"  # version check
+import timm.optim.optim_factory as optim_factory
 
 import util.misc as misc
 from util.misc import NativeScalerWithGradNormCount as NativeScaler
@@ -28,6 +26,9 @@ import util.lr_sched as lr_sched
 from util.FSC147 import transform_train, transform_val
 import models_mae_cross
 
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
 
 def get_args_parser():
     parser = argparse.ArgumentParser('MAE pre-training', add_help=True)
@@ -61,9 +62,9 @@ def get_args_parser():
     # Dataset parameters
     parser.add_argument('--data_path', default='./data/FSC147/', type=str,
                         help='dataset path')
-    parser.add_argument('--anno_file', default='annotation_FSC147_pos.json', type=str,
+    parser.add_argument('--anno_file', default='annotation_FSC147_pos_prompt.json', type=str,
                         help='annotation json file for positive samples')
-    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg.json', type=str,
+    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg_prompt.json', type=str,
                         help='annotation json file for negative samples')
     parser.add_argument('--data_split_file', default='Train_Test_Val_FSC_147.json', type=str,
                         help='data split json file')
@@ -76,7 +77,7 @@ def get_args_parser():
     parser.add_argument('--device', default='cuda',
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--resume', default='./data/checkpoint.pth',
+    parser.add_argument('--resume', default='./data/checkpoint_FSC.pth',
                         help='resume from checkpoint')
     parser.add_argument('--do_resume', action='store_true',
                         help='Resume training (e.g. if crashed).')
@@ -268,18 +269,7 @@ def main(args):
             model_without_ddp = model.module
 
         # following timm: set wd as 0 for bias and norm layers
-        if hasattr(optim_factory, 'add_weight_decay'):
-            param_groups = optim_factory.add_weight_decay(model_without_ddp, args.weight_decay)
-        else:
-            # Fallback for newer timm versions
-            param_groups = [
-                {'params': [p for n, p in model_without_ddp.named_parameters() 
-                           if p.requires_grad and not ('bias' in n or 'norm' in n)],
-                 'weight_decay': args.weight_decay},
-                {'params': [p for n, p in model_without_ddp.named_parameters() 
-                           if p.requires_grad and ('bias' in n or 'norm' in n)],
-                 'weight_decay': 0.0}
-            ]
+        param_groups = optim_factory.add_weight_decay(model_without_ddp, args.weight_decay)
         optimizer = torch.optim.AdamW(param_groups, lr=args.lr, betas=(0.9, 0.95))
         print(optimizer)
 
@@ -327,11 +317,11 @@ def main(args):
                 for i in range(m_flag.shape[0]):
                     flag += m_flag[i].item()
                 if flag == 0:
-                    shot_num = random.randint(0, 3)
+                    shot_num = random.randint(0, 5)
                 else:
-                    shot_num = random.randint(1, 3)
+                    shot_num = random.randint(1, 5)
 
-                with torch.amp.autocast('cuda'):
+                with torch.cuda.amp.autocast():
                     pos_output = model(samples, pos_boxes, shot_num)  # 正样本输出
 
     # 计算正样本损失
@@ -343,7 +333,7 @@ def main(args):
                 pos_loss = (pos_loss * masks / (384 * 384)).sum() / pos_output.shape[0]
     # 负样本输出
 
-                with torch.amp.autocast('cuda'):
+                with torch.cuda.amp.autocast():
                     neg_output = model(samples, neg_boxes, 1)  # 负样本输出
                 
                 cnt1 = 1-torch.exp(-(torch.abs(pos_output.sum()/60 - gt_density.sum()/60).mean()))
@@ -413,7 +403,7 @@ def main(args):
                 shot_num = random.randint(0, 3)
 
                 with torch.no_grad():
-                    with torch.amp.autocast('cuda'):
+                    with torch.cuda.amp.autocast():
                         val_output = model(val_samples, val_boxes, shot_num)
 
                     val_pred_cnt = (val_output.view(len(val_samples), -1)).sum(1) / 60

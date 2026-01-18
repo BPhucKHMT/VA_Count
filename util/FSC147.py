@@ -371,7 +371,7 @@ class ResizeTrainImage(ResizeSomeImage):
         cnt = 0
         for box in lines_boxes:
             cnt += 1
-            if cnt > 3:
+            if cnt > 5:
                 break
             box2 = [int(k) for k in box]
             y1 = int(box2[0] * scale_factor_h)
@@ -447,7 +447,7 @@ class ResizeValImage(ResizeSomeImage):
         for i in range(dots.shape[0]):
             resized_density[min(new_H - 1, int(dots[i][1] * scale_factor_h))] \
                            [min(new_W - 1, int(dots[i][0] * scale_factor_w))] = 1
-        # resized_density = ndimage.gaussian_filter(resized_density, sigma=4, radius=7, order=0)
+        #resized_density = ndimage.gaussian_filter(resized_density, sigma=4, radius=7, order=0)
         resized_density = ndimage.gaussian_filter(resized_density, sigma=4, order=0)
         resized_density = torch.from_numpy(resized_density) * 60
 
@@ -457,7 +457,7 @@ class ResizeValImage(ResizeSomeImage):
         cnt = 0
         for box in lines_boxes:
             cnt += 1
-            if cnt > 3:
+            if cnt >5:
                 break
             box2 = [int(k) for k in box]
             y1 = int(box2[0] * scale_factor_h)

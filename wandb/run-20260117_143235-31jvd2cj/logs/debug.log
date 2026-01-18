@@ -1,0 +1,26 @@
+2026-01-17 14:32:35,578 INFO    MainThread:23544 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_setup.py:_flush():80] Configure stats pid to 23544
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_setup.py:_flush():80] Loading settings from C:\Users\ADMIN\.config\wandb\settings
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_setup.py:_flush():80] Loading settings from C:\uit_HK5\Cs331\VA-Count\wandb\settings
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_init.py:setup_run_log_directory():714] Logging user logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20260117_143235-31jvd2cj\logs\debug.log
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20260117_143235-31jvd2cj\logs\debug-internal.log
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_init.py:init():841] calling init triggers
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'batch_size': 8, 'epochs': 1100, 'accum_iter': 4, 'model': 'mae_vit_base_patch16', 'mask_ratio': 0.5, 'norm_pix_loss': False, 'weight_decay': 0.05, 'lr': 2e-07, 'blr': 0.001, 'min_lr': 0.0, 'warmup_epochs': 10, 'data_path': './data/FSC147/', 'anno_file': WindowsPath('data/FSC147/annotation_FSC147_pos_final.json'), 'anno_file_negative': './data/FSC147/annotation_FSC147_neg_final.json', 'data_split_file': WindowsPath('data/FSC147/Train_Test_Val_FSC_147.json'), 'class_file': WindowsPath('data/FSC147/ImageClasses_FSC147.txt'), 'im_dir': WindowsPath('data/FSC147/images_384_VarV2'), 'output_dir': './data/out/fim6_dir', 'device': 'cuda', 'seed': 0, 'resume': './data/checkpoint_FSC_dino_prompt_final.pth', 'do_resume': False, 'start_epoch': 1000, 'num_workers': 10, 'pin_mem': True, 'do_aug': True, 'world_size': 1, 'local_rank': -1, 'dist_on_itp': False, 'dist_url': 'env://', 'title': 'count', 'wandb': '240227', 'team': 'wsense', 'wandb_id': None, 'distributed': False, '_wandb': {}}
+2026-01-17 14:32:35,579 INFO    MainThread:23544 [wandb_init.py:init():889] starting backend
+2026-01-17 14:32:38,029 INFO    MainThread:23544 [wandb_init.py:init():892] sending inform_init request
+2026-01-17 14:32:38,055 INFO    MainThread:23544 [wandb_init.py:init():900] backend started and connected
+2026-01-17 14:32:38,057 INFO    MainThread:23544 [wandb_init.py:init():970] updated telemetry
+2026-01-17 14:32:38,096 INFO    MainThread:23544 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2026-01-17 14:32:41,039 INFO    MainThread:23544 [wandb_init.py:init():1041] starting run threads in backend
+2026-01-17 14:32:41,625 INFO    MainThread:23544 [wandb_run.py:_console_start():2521] atexit reg
+2026-01-17 14:32:41,625 INFO    MainThread:23544 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2026-01-17 14:32:41,626 INFO    MainThread:23544 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2026-01-17 14:32:41,626 INFO    MainThread:23544 [wandb_run.py:_redirect():2461] Redirects installed.
+2026-01-17 14:32:41,630 INFO    MainThread:23544 [wandb_init.py:init():1081] run started, returning control to user process
+2026-01-17 14:32:42,755 INFO    MainThread:23544 [wandb_run.py:_finish():2287] finishing run nguyenlam-baophuc-uit/240227/31jvd2cj
+2026-01-17 14:32:42,756 INFO    MainThread:23544 [wandb_run.py:_atexit_cleanup():2486] got exitcode: 0
+2026-01-17 14:32:42,756 INFO    MainThread:23544 [wandb_run.py:_restore():2468] restore
+2026-01-17 14:32:42,756 INFO    MainThread:23544 [wandb_run.py:_restore():2474] restore done
+2026-01-17 14:32:44,121 INFO    MainThread:23544 [wandb_run.py:_footer_sync_info():3862] logging synced files

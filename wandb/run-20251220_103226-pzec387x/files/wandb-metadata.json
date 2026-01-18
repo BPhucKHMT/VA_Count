@@ -1,0 +1,45 @@
+{
+  "os":  "Windows-11-10.0.26100-SP0",
+  "python":  "CPython 3.12.7",
+  "startedAt":  "2025-12-20T03:32:26.869357Z",
+  "args":  [
+    "--data_path",
+    "./data/FSC147/",
+    "--freeze_backbone"
+  ],
+  "program":  "C:\\uit_HK5\\Cs331\\VA-Count\\FSC_transfer_learning.py",
+  "codePath":  "FSC_transfer_learning.py",
+  "codePathLocal":  "FSC_transfer_learning.py",
+  "git":  {
+    "remote":  "https://github.com/BPhucKHMT/VA_Count.git",
+    "commit":  "c32a36858df60145ad372693fbd336faf255dba2"
+  },
+  "email":  "nguyenlam.baophuc@gmail.com",
+  "root":  "C:\\uit_HK5\\Cs331\\VA-Count",
+  "host":  "LAPTOP-U9ETFAIE",
+  "executable":  "C:\\Users\\ADMIN\\anaconda3\\python.exe",
+  "cpu_count":  10,
+  "cpu_count_logical":  16,
+  "gpu":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "997814431744",
+      "used":  "740170096640"
+    }
+  },
+  "memory":  {
+    "total":  "25480454144"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "memoryTotal":  "8585740288",
+      "cudaCores":  3072,
+      "architecture":  "Ada",
+      "uuid":  "GPU-655a4ae2-739e-9e6e-3580-6b89eb75a255"
+    }
+  ],
+  "cudaVersion":  "12.6",
+  "writerId":  "kcb6obsjkhi5y0ub3c2s3jm9xtt9jkzz"
+}

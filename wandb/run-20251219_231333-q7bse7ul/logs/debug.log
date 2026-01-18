@@ -1,0 +1,21 @@
+2025-12-19 23:13:33,699 INFO    MainThread:18772 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2025-12-19 23:13:33,700 INFO    MainThread:18772 [wandb_setup.py:_flush():80] Configure stats pid to 18772
+2025-12-19 23:13:33,700 INFO    MainThread:18772 [wandb_setup.py:_flush():80] Loading settings from C:\Users\ADMIN\.config\wandb\settings
+2025-12-19 23:13:33,700 INFO    MainThread:18772 [wandb_setup.py:_flush():80] Loading settings from C:\uit_HK5\Cs331\VA-Count\wandb\settings
+2025-12-19 23:13:33,700 INFO    MainThread:18772 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-12-19 23:13:33,700 INFO    MainThread:18772 [wandb_init.py:setup_run_log_directory():714] Logging user logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20251219_231333-q7bse7ul\logs\debug.log
+2025-12-19 23:13:33,706 INFO    MainThread:18772 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20251219_231333-q7bse7ul\logs\debug-internal.log
+2025-12-19 23:13:33,706 INFO    MainThread:18772 [wandb_init.py:init():841] calling init triggers
+2025-12-19 23:13:33,706 INFO    MainThread:18772 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'batch_size': 8, 'epochs': 1000, 'accum_iter': 1, 'model': 'mae_vit_base_patch16', 'mask_ratio': 0.5, 'norm_pix_loss': False, 'weight_decay': 0.05, 'lr': 1e-05, 'blr': 0.001, 'min_lr': 0.0, 'warmup_epochs': 10, 'data_path': './data/FSC147/', 'anno_file': WindowsPath('data/FSC147/annotation_FSC147_pos_v6.json'), 'anno_file_negative': './data/FSC147/annotation_FSC147_neg.json', 'data_split_file': WindowsPath('data/FSC147/Train_Test_Val_FSC_147.json'), 'class_file': WindowsPath('data/FSC147/ImageClasses_FSC147_detailed_v6_pos.txt'), 'im_dir': WindowsPath('data/FSC147/images_384_VarV2'), 'output_dir': './data/out/', 'device': 'cuda', 'seed': 0, 'resume': './data/checkpoint_finetuning_minMAE.pth', 'do_resume': False, 'start_epoch': 0, 'num_workers': 10, 'pin_mem': True, 'do_aug': True, 'world_size': 1, 'local_rank': -1, 'dist_on_itp': False, 'dist_url': 'env://', 'title': 'count', 'wandb': '240227', 'team': 'wsense', 'wandb_id': None, 'distributed': False, '_wandb': {}}
+2025-12-19 23:13:33,706 INFO    MainThread:18772 [wandb_init.py:init():889] starting backend
+2025-12-19 23:13:36,319 INFO    MainThread:18772 [wandb_init.py:init():892] sending inform_init request
+2025-12-19 23:13:36,366 INFO    MainThread:18772 [wandb_init.py:init():900] backend started and connected
+2025-12-19 23:13:36,367 INFO    MainThread:18772 [wandb_init.py:init():970] updated telemetry
+2025-12-19 23:13:36,390 INFO    MainThread:18772 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2025-12-19 23:13:39,740 INFO    MainThread:18772 [wandb_init.py:init():1041] starting run threads in backend
+2025-12-19 23:13:40,521 INFO    MainThread:18772 [wandb_run.py:_console_start():2521] atexit reg
+2025-12-19 23:13:40,522 INFO    MainThread:18772 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2025-12-19 23:13:40,522 INFO    MainThread:18772 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2025-12-19 23:13:40,522 INFO    MainThread:18772 [wandb_run.py:_redirect():2461] Redirects installed.
+2025-12-19 23:13:40,525 INFO    MainThread:18772 [wandb_init.py:init():1081] run started, returning control to user process

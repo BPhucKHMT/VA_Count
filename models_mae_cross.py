@@ -30,7 +30,7 @@ class SupervisedMAE(nn.Module):
         self.pos_embed = nn.Parameter(torch.zeros(1, num_patches, embed_dim), requires_grad=False)  # fixed sin-cos embedding
 
         self.blocks = nn.ModuleList([
-            Block(embed_dim, num_heads, mlp_ratio, qkv_bias=True, norm_layer=norm_layer)
+            Block(embed_dim, num_heads, mlp_ratio, qkv_bias=True, qk_scale=None, norm_layer=norm_layer)
             for i in range(depth)])
         self.norm = norm_layer(embed_dim)
         # --------------------------------------------------------------------------
@@ -72,7 +72,7 @@ class SupervisedMAE(nn.Module):
 
 
         self.decoder_blocks = nn.ModuleList([
-            CrossAttentionBlock(decoder_embed_dim, decoder_num_heads, mlp_ratio, qkv_bias=True, norm_layer=norm_layer)
+            CrossAttentionBlock(decoder_embed_dim, decoder_num_heads, mlp_ratio, qkv_bias=True, qk_scale=None, norm_layer=norm_layer)
             for i in range(decoder_depth)])
 
         self.decoder_norm = norm_layer(decoder_embed_dim)
@@ -147,14 +147,14 @@ class SupervisedMAE(nn.Module):
 
         return x
 
-    def forward_decoder(self, x, y_, shot_num=3):
+    def forward_decoder(self, x, y_, shot_num=5):
         # embed tokens
         x = self.decoder_embed(x)
         # add pos embed
         x = x + self.decoder_pos_embed
 
         # Exemplar encoder
-        y_ = y_.transpose(0,1) # y_ [N,3,3,64,64]->[3,N,3,64,64]
+        y_ = y_.transpose(0,1) # y_ [N,5,3,64,64]->[5,N,3,64,64]
         y1=[]
         C=0
         N=0
@@ -174,7 +174,7 @@ class SupervisedMAE(nn.Module):
             y = torch.cat(y1,dim=0).reshape(shot_num,N,C).to(x.device)
         else:
             y = self.shot_token.repeat(y_.shape[1],1).unsqueeze(0).to(x.device)
-        y = y.transpose(0,1) # y [3,N,C]->[N,3,C]
+        y = y.transpose(0,1) # y [shot_num,N,C]->[N,shot_num,C]
         
         # apply Transformer blocks
         for blk in self.decoder_blocks:

@@ -66,7 +66,7 @@ class CustomDataset(Dataset):
 # 2. 数据集划分
 data_folder = './data/FSC147/one'
 label_file = os.path.join(data_folder, 'labels.txt')
-# df = read_label_file(label_file)
+df = read_label_file(label_file)
 df = df_filtered
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 

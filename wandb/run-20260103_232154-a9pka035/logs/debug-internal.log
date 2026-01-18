@@ -1,0 +1,25 @@
+{"time":"2026-01-03T23:21:57.5374723+07:00","level":"INFO","msg":"stream: starting","core version":"0.23.1"}
+{"time":"2026-01-03T23:22:00.1638265+07:00","level":"INFO","msg":"stream: created new stream","id":"a9pka035"}
+{"time":"2026-01-03T23:22:00.1638265+07:00","level":"INFO","msg":"handler: started","stream_id":"a9pka035"}
+{"time":"2026-01-03T23:22:00.1789278+07:00","level":"INFO","msg":"stream: started","id":"a9pka035"}
+{"time":"2026-01-03T23:22:00.1789278+07:00","level":"INFO","msg":"writer: started","stream_id":"a9pka035"}
+{"time":"2026-01-03T23:22:00.1789278+07:00","level":"INFO","msg":"sender: started","stream_id":"a9pka035"}
+{"time":"2026-01-04T07:26:52.8292859+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/nguyenlam-baophuc-uit/240227/a9pka035/file_stream\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:04.9764989+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 192.168.68.107:61258->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:04.9764989+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": read tcp 192.168.68.107:61258->35.186.228.49:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:16.1464116+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/nguyenlam-baophuc-uit/240227/a9pka035/file_stream\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:20.4418729+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/nguyenlam-baophuc-uit/240227/a9pka035/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:27:28.0546771+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:28.3204475+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp 35.186.228.49:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond."}
+{"time":"2026-01-04T07:27:40.7802364+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:27:40.7802364+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/nguyenlam-baophuc-uit/240227/a9pka035/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:27:40.7802364+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:28:01.4120767+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:28:01.4120767+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/graphql\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T07:28:01.4149058+07:00","level":"INFO","msg":"api: retrying error","error":"Post \"https://api.wandb.ai/files/nguyenlam-baophuc-uit/240227/a9pka035/file_stream\": dial tcp: lookup api.wandb.ai: no such host"}
+{"time":"2026-01-04T12:49:23.0691373+07:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2026-01-04T12:49:23.4748519+07:00","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2026-01-04T12:49:23.5084008+07:00","level":"INFO","msg":"stream: closing","id":"a9pka035"}
+{"time":"2026-01-04T12:49:23.5089192+07:00","level":"INFO","msg":"handler: closed","stream_id":"a9pka035"}
+{"time":"2026-01-04T12:49:23.509432+07:00","level":"INFO","msg":"sender: closed","stream_id":"a9pka035"}
+{"time":"2026-01-04T12:49:23.509432+07:00","level":"INFO","msg":"stream: closed","id":"a9pka035"}

@@ -1,0 +1,1603 @@
+2025-12-15 23:52:23,936 INFO    MainThread:29452 [wandb_setup.py:_flush():80] Current SDK version is 0.23.1
+2025-12-15 23:52:23,936 INFO    MainThread:29452 [wandb_setup.py:_flush():80] Configure stats pid to 29452
+2025-12-15 23:52:23,936 INFO    MainThread:29452 [wandb_setup.py:_flush():80] Loading settings from C:\Users\ADMIN\.config\wandb\settings
+2025-12-15 23:52:23,936 INFO    MainThread:29452 [wandb_setup.py:_flush():80] Loading settings from C:\uit_HK5\Cs331\VA-Count\wandb\settings
+2025-12-15 23:52:23,936 INFO    MainThread:29452 [wandb_setup.py:_flush():80] Loading settings from environment variables
+2025-12-15 23:52:23,937 INFO    MainThread:29452 [wandb_init.py:setup_run_log_directory():714] Logging user logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20251215_235223-4cjt7bt3\logs\debug.log
+2025-12-15 23:52:23,937 INFO    MainThread:29452 [wandb_init.py:setup_run_log_directory():715] Logging internal logs to C:\uit_HK5\Cs331\VA-Count\wandb\run-20251215_235223-4cjt7bt3\logs\debug-internal.log
+2025-12-15 23:52:23,937 INFO    MainThread:29452 [wandb_init.py:init():841] calling init triggers
+2025-12-15 23:52:23,937 INFO    MainThread:29452 [wandb_init.py:init():846] wandb.init called with sweep_config: {}
+config: {'batch_size': 8, 'epochs': 200, 'accum_iter': 1, 'model': 'mae_vit_base_patch16', 'mask_ratio': 0.5, 'norm_pix_loss': False, 'weight_decay': 0.05, 'lr': 1e-05, 'blr': 0.001, 'min_lr': 0.0, 'warmup_epochs': 10, 'data_path': './data/FSC147/', 'anno_file': WindowsPath('data/FSC147/annotation_FSC147_pos_v5_tiny.json'), 'anno_file_negative': './data/FSC147/annotation_FSC147_neg.json', 'data_split_file': WindowsPath('data/FSC147/Train_Test_Val_FSC_147.json'), 'class_file': WindowsPath('data/FSC147/ImageClasses_FSC147_detailed_v4.txt'), 'im_dir': WindowsPath('data/FSC147/images_384_VarV2'), 'output_dir': './data/out/', 'device': 'cuda', 'seed': 0, 'resume': './data/checkpoint_FSC.pth', 'do_resume': False, 'start_epoch': 0, 'num_workers': 10, 'pin_mem': True, 'do_aug': True, 'world_size': 1, 'local_rank': -1, 'dist_on_itp': False, 'dist_url': 'env://', 'title': 'count', 'wandb': '240227', 'team': 'wsense', 'wandb_id': None, 'distributed': False, '_wandb': {}}
+2025-12-15 23:52:23,937 INFO    MainThread:29452 [wandb_init.py:init():889] starting backend
+2025-12-15 23:52:26,281 INFO    MainThread:29452 [wandb_init.py:init():892] sending inform_init request
+2025-12-15 23:52:26,327 INFO    MainThread:29452 [wandb_init.py:init():900] backend started and connected
+2025-12-15 23:52:26,328 INFO    MainThread:29452 [wandb_init.py:init():970] updated telemetry
+2025-12-15 23:52:26,367 INFO    MainThread:29452 [wandb_init.py:init():994] communicating run to backend with 90.0 second timeout
+2025-12-15 23:52:27,569 INFO    MainThread:29452 [wandb_init.py:init():1041] starting run threads in backend
+2025-12-15 23:52:28,181 INFO    MainThread:29452 [wandb_run.py:_console_start():2521] atexit reg
+2025-12-15 23:52:28,181 INFO    MainThread:29452 [wandb_run.py:_redirect():2369] redirect: wrap_raw
+2025-12-15 23:52:28,181 INFO    MainThread:29452 [wandb_run.py:_redirect():2438] Wrapping output streams.
+2025-12-15 23:52:28,181 INFO    MainThread:29452 [wandb_run.py:_redirect():2461] Redirects installed.
+2025-12-15 23:52:28,183 INFO    MainThread:29452 [wandb_init.py:init():1081] run started, returning control to user process
+2025-12-16 14:50:10,326 ERROR   wandb-AsyncioManager-main:29452 [service_client.py:_forward_responses():77] Error reading server response.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,354 INFO    wandb-AsyncioManager-main:29452 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.
+2025-12-16 14:50:10,358 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,361 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,362 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,366 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,368 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,370 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,372 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,376 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,379 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,382 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,387 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,391 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,400 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,404 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,409 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available
+2025-12-16 14:50:10,414 ERROR   wandb-AsyncioManager-main:29452 [asyncio_manager.py:fn_wrap_exceptions():183] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 462, in finish_socket_func
+    return ov.getresult()
+           ^^^^^^^^^^^^^^
+OSError: [WinError 64] The specified network name is no longer available
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\asyncio_manager.py", line 181, in fn_wrap_exceptions
+    await fn()
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 38, in publish
+    await self._send_server_request(request)
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 64, in _send_server_request
+    await self._writer.drain()
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 380, in drain
+    raise exc
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 73, in _forward_responses
+    while response := await self._read_server_response():
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\site-packages\wandb\sdk\lib\service\service_client.py", line 87, in _read_server_response
+    header = await self._reader.readexactly(_HEADER_BYTE_INT_LEN)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 752, in readexactly
+    await self._wait_for_data('readexactly')
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\streams.py", line 545, in _wait_for_data
+    await self._waiter
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+             ^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 803, in _poll
+    value = callback(transferred, key, ov)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ADMIN\anaconda3\Lib\asyncio\windows_events.py", line 466, in finish_socket_func
+    raise ConnectionResetError(*exc.args)
+ConnectionResetError: [WinError 64] The specified network name is no longer available

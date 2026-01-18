@@ -41,9 +41,9 @@ def get_args_parser():
     # Dataset parameters
     parser.add_argument('--data_path', default='./data/FSC147/', type=str,
                         help='dataset path')
-    parser.add_argument('--anno_file', default='annotation_FSC147_pos.json', type=str,
+    parser.add_argument('--anno_file', default='annotation_FSC147_pos_prompt.json', type=str,
                         help='annotation json file')
-    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg.json', type=str,
+    parser.add_argument('--anno_file_negative', default='./data/FSC147/annotation_FSC147_neg_prompt.json', type=str,
                         help='annotation json file')
     parser.add_argument('--data_split_file', default='Train_Test_Val_FSC_147.json', type=str,
                         help='data split json file')
@@ -54,7 +54,7 @@ def get_args_parser():
     parser.add_argument('--device', default='cuda',
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--resume', default='./output_fim6_dir/checkpoint-0.pth',
+    parser.add_argument('--resume', default='./data/checkpoint__finetuning_yolo.pth',
                         help='resume from checkpoint')
     parser.add_argument('--external', action='store_true',
                         help='Set this param for using external exemplars')
@@ -63,7 +63,7 @@ def get_args_parser():
     parser.add_argument('--split', default="test", type=str)
 
     # Training parameters
-    parser.add_argument('--num_workers', default=0, type=int)
+    parser.add_argument('--num_workers', default=19, type=int)
     parser.add_argument('--pin_mem', action='store_true',
                         help='Pin CPU memory in DataLoader for more efficient (sometimes) transfer to GPU.')
     parser.add_argument('--no_pin_mem', action='store_false', dest='pin_mem')
@@ -301,12 +301,16 @@ def main(args):
             sub_val_samples = val_samples[i:i+sub_batch_size]
             sub_val_gt_density = val_gt_density[i:i+sub_batch_size]
 
+            # Determine actual shot_num based on available boxes
+            actual_shot_num = min(5, val_boxes.shape[1])  # Use up to 5 positive exemplars
+            actual_neg_shot_num = min(3, neg_val_boxes.shape[1])  # Use up to 3 negative exemplars
+
             with torch.no_grad():
                 with torch.amp.autocast('cuda'):
-                    sub_val_output = model(sub_val_samples, val_boxes[i:i+sub_batch_size], 3)
+                    sub_val_output = model(sub_val_samples, val_boxes, actual_shot_num)
             with torch.no_grad():
                 with torch.amp.autocast('cuda'):
-                    neg_sub_val_output = model(sub_val_samples, neg_val_boxes[i:i+sub_batch_size], 3)
+                    neg_sub_val_output = model(sub_val_samples, neg_val_boxes, actual_neg_shot_num)
                 # output = torch.clamp((sub_val_output-neg_sub_val_output),min=0)
                 sub_val_pred_cnt = torch.abs(sub_val_output.sum()) / 60
                 # sub_val_pred_cnt = torch.abs(output.sum()) / 60

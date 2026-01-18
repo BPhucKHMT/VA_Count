@@ -1,0 +1,265 @@
+[10:51:54.379339]
+⏳ Loading pretrained checkpoint: ./data/checkpoint_FSC.pth
+[10:51:54.638324] ✅ Loaded pretrained weights
+[10:51:54.639724]
+============================================================
+[10:51:54.641432] 🧊 FREEZING BACKBONE ENCODER
+[10:51:54.643052] ============================================================
+[10:51:54.644644] ❄️  Frozen: pos_embed
+[10:51:54.645811] ❄️  Frozen: decoder_pos_embed
+[10:51:54.646435] 🔥 Training: shot_token
+[10:51:54.647158] ❄️  Frozen: patch_embed.proj.weight
+[10:51:54.648491] ❄️  Frozen: patch_embed.proj.bias
+[10:51:54.649436] ❄️  Frozen: blocks.0.norm1.weight
+[10:51:54.650466] ❄️  Frozen: blocks.0.norm1.bias
+[10:51:54.650986] ❄️  Frozen: blocks.0.attn.qkv.weight
+[10:51:54.652022] ❄️  Frozen: blocks.0.attn.qkv.bias
+[10:51:54.652539] ❄️  Frozen: blocks.0.attn.proj.weight
+[10:51:54.653064] ❄️  Frozen: blocks.0.attn.proj.bias
+[10:51:54.654165] ❄️  Frozen: blocks.0.norm2.weight
+[10:51:54.655290] ❄️  Frozen: blocks.0.norm2.bias
+[10:51:54.656114] ❄️  Frozen: blocks.0.mlp.fc1.weight
+[10:51:54.656642] ❄️  Frozen: blocks.0.mlp.fc1.bias
+[10:51:54.657402] ❄️  Frozen: blocks.0.mlp.fc2.weight
+[10:51:54.658069] ❄️  Frozen: blocks.0.mlp.fc2.bias
+[10:51:54.658765] ❄️  Frozen: blocks.1.norm1.weight
+[10:51:54.659771] ❄️  Frozen: blocks.1.norm1.bias
+[10:51:54.660275] ❄️  Frozen: blocks.1.attn.qkv.weight
+[10:51:54.661312] ❄️  Frozen: blocks.1.attn.qkv.bias
+[10:51:54.661829] ❄️  Frozen: blocks.1.attn.proj.weight
+[10:51:54.662865] ❄️  Frozen: blocks.1.attn.proj.bias
+[10:51:54.663546] ❄️  Frozen: blocks.1.norm2.weight
+[10:51:54.664591] ❄️  Frozen: blocks.1.norm2.bias
+[10:51:54.665112] ❄️  Frozen: blocks.1.mlp.fc1.weight
+[10:51:54.665624] ❄️  Frozen: blocks.1.mlp.fc1.bias
+[10:51:54.666136] ❄️  Frozen: blocks.1.mlp.fc2.weight
+[10:51:54.667168] ❄️  Frozen: blocks.1.mlp.fc2.bias
+[10:51:54.667688] ❄️  Frozen: blocks.2.norm1.weight
+[10:51:54.668204] ❄️  Frozen: blocks.2.norm1.bias
+[10:51:54.668720] ❄️  Frozen: blocks.2.attn.qkv.weight
+[10:51:54.669287] ❄️  Frozen: blocks.2.attn.qkv.bias
+[10:51:54.669808] ❄️  Frozen: blocks.2.attn.proj.weight
+[10:51:54.670979] ❄️  Frozen: blocks.2.attn.proj.bias
+[10:51:54.672011] ❄️  Frozen: blocks.2.norm2.weight
+[10:51:54.672533] ❄️  Frozen: blocks.2.norm2.bias
+[10:51:54.673066] ❄️  Frozen: blocks.2.mlp.fc1.weight
+[10:51:54.674114] ❄️  Frozen: blocks.2.mlp.fc1.bias
+[10:51:54.674631] ❄️  Frozen: blocks.2.mlp.fc2.weight
+[10:51:54.675148] ❄️  Frozen: blocks.2.mlp.fc2.bias
+[10:51:54.675666] ❄️  Frozen: blocks.3.norm1.weight
+[10:51:54.676183] ❄️  Frozen: blocks.3.norm1.bias
+[10:51:54.676723] ❄️  Frozen: blocks.3.attn.qkv.weight
+[10:51:54.677395] ❄️  Frozen: blocks.3.attn.qkv.bias
+[10:51:54.678430] ❄️  Frozen: blocks.3.attn.proj.weight
+[10:51:54.678963] ❄️  Frozen: blocks.3.attn.proj.bias
+[10:51:54.679995] ❄️  Frozen: blocks.3.norm2.weight
+[10:51:54.680511] ❄️  Frozen: blocks.3.norm2.bias
+[10:51:54.681028] ❄️  Frozen: blocks.3.mlp.fc1.weight
+[10:51:54.681546] ❄️  Frozen: blocks.3.mlp.fc1.bias
+[10:51:54.682070] ❄️  Frozen: blocks.3.mlp.fc2.weight
+[10:51:54.683100] ❄️  Frozen: blocks.3.mlp.fc2.bias
+[10:51:54.683619] ❄️  Frozen: blocks.4.norm1.weight
+[10:51:54.684340] ❄️  Frozen: blocks.4.norm1.bias
+[10:51:54.684902] ❄️  Frozen: blocks.4.attn.qkv.weight
+[10:51:54.685591] ❄️  Frozen: blocks.4.attn.qkv.bias
+[10:51:54.686184] ❄️  Frozen: blocks.4.attn.proj.weight
+[10:51:54.686829] ❄️  Frozen: blocks.4.attn.proj.bias
+[10:51:54.687756] ❄️  Frozen: blocks.4.norm2.weight
+[10:51:54.688804] ❄️  Frozen: blocks.4.norm2.bias
+[10:51:54.689318] ❄️  Frozen: blocks.4.mlp.fc1.weight
+[10:51:54.690350] ❄️  Frozen: blocks.4.mlp.fc1.bias
+[10:51:54.690866] ❄️  Frozen: blocks.4.mlp.fc2.weight
+[10:51:54.691382] ❄️  Frozen: blocks.4.mlp.fc2.bias
+[10:51:54.691898] ❄️  Frozen: blocks.5.norm1.weight
+[10:51:54.692415] ❄️  Frozen: blocks.5.norm1.bias
+[10:51:54.693444] ❄️  Frozen: blocks.5.attn.qkv.weight
+[10:51:54.693962] ❄️  Frozen: blocks.5.attn.qkv.bias
+[10:51:54.694472] ❄️  Frozen: blocks.5.attn.proj.weight
+[10:51:54.694981] ❄️  Frozen: blocks.5.attn.proj.bias
+[10:51:54.695508] ❄️  Frozen: blocks.5.norm2.weight
+[10:51:54.696022] ❄️  Frozen: blocks.5.norm2.bias
+[10:51:54.696539] ❄️  Frozen: blocks.5.mlp.fc1.weight
+[10:51:54.697056] ❄️  Frozen: blocks.5.mlp.fc1.bias
+[10:51:54.698155] ❄️  Frozen: blocks.5.mlp.fc2.weight
+[10:51:54.698674] ❄️  Frozen: blocks.5.mlp.fc2.bias
+[10:51:54.699199] ❄️  Frozen: blocks.6.norm1.weight
+[10:51:54.699711] ❄️  Frozen: blocks.6.norm1.bias
+[10:51:54.700284] ❄️  Frozen: blocks.6.attn.qkv.weight
+[10:51:54.700915] ❄️  Frozen: blocks.6.attn.qkv.bias
+[10:51:54.700915] ❄️  Frozen: blocks.6.attn.proj.weight
+[10:51:54.702242] ❄️  Frozen: blocks.6.attn.proj.bias
+[10:51:54.702767] ❄️  Frozen: blocks.6.norm2.weight
+[10:51:54.703285] ❄️  Frozen: blocks.6.norm2.bias
+[10:51:54.703800] ❄️  Frozen: blocks.6.mlp.fc1.weight
+[10:51:54.704832] ❄️  Frozen: blocks.6.mlp.fc1.bias
+[10:51:54.705352] ❄️  Frozen: blocks.6.mlp.fc2.weight
+[10:51:54.705866] ❄️  Frozen: blocks.6.mlp.fc2.bias
+[10:51:54.706403] ❄️  Frozen: blocks.7.norm1.weight
+[10:51:54.707507] ❄️  Frozen: blocks.7.norm1.bias
+[10:51:54.708047] ❄️  Frozen: blocks.7.attn.qkv.weight
+[10:51:54.708670] ❄️  Frozen: blocks.7.attn.qkv.bias
+[10:51:54.709184] ❄️  Frozen: blocks.7.attn.proj.weight
+[10:51:54.709711] ❄️  Frozen: blocks.7.attn.proj.bias
+[10:51:54.710228] ❄️  Frozen: blocks.7.norm2.weight
+[10:51:54.710746] ❄️  Frozen: blocks.7.norm2.bias
+[10:51:54.711262] ❄️  Frozen: blocks.7.mlp.fc1.weight
+[10:51:54.711922] ❄️  Frozen: blocks.7.mlp.fc1.bias
+[10:51:54.711922] ❄️  Frozen: blocks.7.mlp.fc2.weight
+[10:51:54.713214] ❄️  Frozen: blocks.7.mlp.fc2.bias
+[10:51:54.713214] ❄️  Frozen: blocks.8.norm1.weight
+[10:51:54.713980] ❄️  Frozen: blocks.8.norm1.bias
+[10:51:54.714632] ❄️  Frozen: blocks.8.attn.qkv.weight
+[10:51:54.715184] ❄️  Frozen: blocks.8.attn.qkv.bias
+[10:51:54.715762] ❄️  Frozen: blocks.8.attn.proj.weight
+[10:51:54.716833] ❄️  Frozen: blocks.8.attn.proj.bias
+[10:51:54.717337] ❄️  Frozen: blocks.8.norm2.weight
+[10:51:54.718367] ❄️  Frozen: blocks.8.norm2.bias
+[10:51:54.718877] ❄️  Frozen: blocks.8.mlp.fc1.weight
+[10:51:54.719912] ❄️  Frozen: blocks.8.mlp.fc1.bias
+[10:51:54.720446] ❄️  Frozen: blocks.8.mlp.fc2.weight
+[10:51:54.721482] ❄️  Frozen: blocks.8.mlp.fc2.bias
+[10:51:54.722522] ❄️  Frozen: blocks.9.norm1.weight
+[10:51:54.723035] ❄️  Frozen: blocks.9.norm1.bias
+[10:51:54.723551] ❄️  Frozen: blocks.9.attn.qkv.weight
+[10:51:54.724069] ❄️  Frozen: blocks.9.attn.qkv.bias
+[10:51:54.725101] ❄️  Frozen: blocks.9.attn.proj.weight
+[10:51:54.725617] ❄️  Frozen: blocks.9.attn.proj.bias
+[10:51:54.726141] ❄️  Frozen: blocks.9.norm2.weight
+[10:51:54.727202] ❄️  Frozen: blocks.9.norm2.bias
+[10:51:54.727726] ❄️  Frozen: blocks.9.mlp.fc1.weight
+[10:51:54.728242] ❄️  Frozen: blocks.9.mlp.fc1.bias
+[10:51:54.728758] ❄️  Frozen: blocks.9.mlp.fc2.weight
+[10:51:54.729351] ❄️  Frozen: blocks.9.mlp.fc2.bias
+[10:51:54.730000] ❄️  Frozen: blocks.10.norm1.weight
+[10:51:54.730525] ❄️  Frozen: blocks.10.norm1.bias
+[10:51:54.731611] ❄️  Frozen: blocks.10.attn.qkv.weight
+[10:51:54.732127] ❄️  Frozen: blocks.10.attn.qkv.bias
+[10:51:54.732646] ❄️  Frozen: blocks.10.attn.proj.weight
+[10:51:54.733194] ❄️  Frozen: blocks.10.attn.proj.bias
+[10:51:54.734223] ❄️  Frozen: blocks.10.norm2.weight
+[10:51:54.734742] ❄️  Frozen: blocks.10.norm2.bias
+[10:51:54.735260] ❄️  Frozen: blocks.10.mlp.fc1.weight
+[10:51:54.736299] ❄️  Frozen: blocks.10.mlp.fc1.bias
+[10:51:54.736816] ❄️  Frozen: blocks.10.mlp.fc2.weight
+[10:51:54.737330] ❄️  Frozen: blocks.10.mlp.fc2.bias
+[10:51:54.737846] ❄️  Frozen: blocks.11.norm1.weight
+[10:51:54.738391] ❄️  Frozen: blocks.11.norm1.bias
+[10:51:54.739425] ❄️  Frozen: blocks.11.attn.qkv.weight
+[10:51:54.739941] ❄️  Frozen: blocks.11.attn.qkv.bias
+[10:51:54.740968] ❄️  Frozen: blocks.11.attn.proj.weight
+[10:51:54.741486] ❄️  Frozen: blocks.11.attn.proj.bias
+[10:51:54.741999] ❄️  Frozen: blocks.11.norm2.weight
+[10:51:54.742535] ❄️  Frozen: blocks.11.norm2.bias
+[10:51:54.743050] ❄️  Frozen: blocks.11.mlp.fc1.weight
+[10:51:54.743738] ❄️  Frozen: blocks.11.mlp.fc1.bias
+[10:51:54.744393] ❄️  Frozen: blocks.11.mlp.fc2.weight
+[10:51:54.744904] ❄️  Frozen: blocks.11.mlp.fc2.bias
+[10:51:54.745941] 🔥 Training: norm.weight
+[10:51:54.746500] 🔥 Training: norm.bias
+[10:51:54.748489] 🔥 Training: decoder_embed.weight
+[10:51:54.751979] 🔥 Training: decoder_embed.bias
+[10:51:54.754256] 🔥 Training: decoder_proj1.0.weight
+[10:51:54.755316] 🔥 Training: decoder_proj1.0.bias
+[10:51:54.756396] 🔥 Training: decoder_proj2.0.weight
+[10:51:54.757443] 🔥 Training: decoder_proj2.0.bias
+[10:51:54.758533] 🔥 Training: decoder_proj3.0.weight
+[10:51:54.759770] 🔥 Training: decoder_proj3.0.bias
+[10:51:54.760881] 🔥 Training: decoder_proj4.0.weight
+[10:51:54.762267] 🔥 Training: decoder_proj4.0.bias
+[10:51:54.763497] ❄️  Frozen: decoder_blocks.0.norm0.weight
+[10:51:54.764443] ❄️  Frozen: decoder_blocks.0.norm0.bias
+[10:51:54.765448] ❄️  Frozen: decoder_blocks.0.selfattn.qkv.weight
+[10:51:54.766577] ❄️  Frozen: decoder_blocks.0.selfattn.qkv.bias
+[10:51:54.767622] ❄️  Frozen: decoder_blocks.0.selfattn.proj.weight
+[10:51:54.768698] ❄️  Frozen: decoder_blocks.0.selfattn.proj.bias
+[10:51:54.769737] ❄️  Frozen: decoder_blocks.0.norm1.weight
+[10:51:54.770253] ❄️  Frozen: decoder_blocks.0.norm1.bias
+[10:51:54.771305] ❄️  Frozen: decoder_blocks.0.attn.wq.weight
+[10:51:54.772426] ❄️  Frozen: decoder_blocks.0.attn.wq.bias
+[10:51:54.772946] ❄️  Frozen: decoder_blocks.0.attn.wk.weight
+[10:51:54.773985] ❄️  Frozen: decoder_blocks.0.attn.wk.bias
+[10:51:54.775261] ❄️  Frozen: decoder_blocks.0.attn.wv.weight
+[10:51:54.775782] ❄️  Frozen: decoder_blocks.0.attn.wv.bias
+[10:51:54.776843] ❄️  Frozen: decoder_blocks.0.attn.proj.weight
+[10:51:54.778160] ❄️  Frozen: decoder_blocks.0.attn.proj.bias
+[10:51:54.779341] ❄️  Frozen: decoder_blocks.0.norm2.weight
+[10:51:54.780198] ❄️  Frozen: decoder_blocks.0.norm2.bias
+[10:51:54.781803] ❄️  Frozen: decoder_blocks.0.mlp.fc1.weight
+[10:51:54.782878] ❄️  Frozen: decoder_blocks.0.mlp.fc1.bias
+[10:51:54.783930] ❄️  Frozen: decoder_blocks.0.mlp.fc2.weight
+[10:51:54.785013] ❄️  Frozen: decoder_blocks.0.mlp.fc2.bias
+[10:51:54.786093] ❄️  Frozen: decoder_blocks.1.norm0.weight
+[10:51:54.787146] ❄️  Frozen: decoder_blocks.1.norm0.bias
+[10:51:54.788943] ❄️  Frozen: decoder_blocks.1.selfattn.qkv.weight
+[10:51:54.789992] ❄️  Frozen: decoder_blocks.1.selfattn.qkv.bias
+[10:51:54.791052] ❄️  Frozen: decoder_blocks.1.selfattn.proj.weight
+[10:51:54.792536] ❄️  Frozen: decoder_blocks.1.selfattn.proj.bias
+[10:51:54.794369] ❄️  Frozen: decoder_blocks.1.norm1.weight
+[10:51:54.794895] ❄️  Frozen: decoder_blocks.1.norm1.bias
+[10:51:54.796352] ❄️  Frozen: decoder_blocks.1.attn.wq.weight
+[10:51:54.798039] ❄️  Frozen: decoder_blocks.1.attn.wq.bias
+[10:51:54.799183] ❄️  Frozen: decoder_blocks.1.attn.wk.weight
+[10:51:54.800395] ❄️  Frozen: decoder_blocks.1.attn.wk.bias
+[10:51:54.801742] ❄️  Frozen: decoder_blocks.1.attn.wv.weight
+[10:51:54.802287] ❄️  Frozen: decoder_blocks.1.attn.wv.bias
+[10:51:54.803726] ❄️  Frozen: decoder_blocks.1.attn.proj.weight
+[10:51:54.804485] ❄️  Frozen: decoder_blocks.1.attn.proj.bias
+[10:51:54.804899] ❄️  Frozen: decoder_blocks.1.norm2.weight
+[10:51:54.805953] ❄️  Frozen: decoder_blocks.1.norm2.bias
+[10:51:54.806482] ❄️  Frozen: decoder_blocks.1.mlp.fc1.weight
+[10:51:54.807521] ❄️  Frozen: decoder_blocks.1.mlp.fc1.bias
+[10:51:54.808048] ❄️  Frozen: decoder_blocks.1.mlp.fc2.weight
+[10:51:54.808563] ❄️  Frozen: decoder_blocks.1.mlp.fc2.bias
+[10:51:54.809546] 🔥 Training: decoder_norm.weight
+[10:51:54.810133] 🔥 Training: decoder_norm.bias
+[10:51:54.810803] 🔥 Training: decode_head0.0.weight
+[10:51:54.811999] 🔥 Training: decode_head0.0.bias
+[10:51:54.811999] 🔥 Training: decode_head0.1.weight
+[10:51:54.813338] 🔥 Training: decode_head0.1.bias
+[10:51:54.813922] 🔥 Training: decode_head1.0.weight
+[10:51:54.814437] 🔥 Training: decode_head1.0.bias
+[10:51:54.814978] 🔥 Training: decode_head1.1.weight
+[10:51:54.815496] 🔥 Training: decode_head1.1.bias
+[10:51:54.816017] 🔥 Training: decode_head2.0.weight
+[10:51:54.817114] 🔥 Training: decode_head2.0.bias
+[10:51:54.817634] 🔥 Training: decode_head2.1.weight
+[10:51:54.818671] 🔥 Training: decode_head2.1.bias
+[10:51:54.819190] 🔥 Training: decode_head3.0.weight
+[10:51:54.820227] 🔥 Training: decode_head3.0.bias
+[10:51:54.820748] 🔥 Training: decode_head3.1.weight
+[10:51:54.821780] 🔥 Training: decode_head3.1.bias
+[10:51:54.822820] 🔥 Training: decode_head3.3.weight
+[10:51:54.823903] 🔥 Training: decode_head3.3.bias
+[10:51:54.824954]
+============================================================
+[10:51:54.826046] 📊 Parameter Statistics:
+[10:51:54.826561]    Trainable: 4,900,225 (4.90M)
+[10:51:54.827621]    Frozen: 94,790,400 (94.79M)
+[10:51:54.828148]    Total: 99,690,625 (99.69M)
+[10:51:54.829219] ============================================================
+
+[10:51:54.830270]
+🔧 Creating NEW optimizer (LR=1e-05)
+[10:51:54.831833]
+🚀 Start transfer learning for 50 epochs
+[10:51:54.832911]    Expected: MAE 18.0 → 15-16
+[10:51:54.833449] ================================================================================
+C:\uit_HK5\Cs331\VA-Count\FSC_transfer_learning.py:262: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+
+[10:52:31.239880] Epoch: [0]  [  0/458]  eta: 4:37:52  lr: 0.000000  loss: 1.0449 (1.0449)  time: 36.4026  data: 31.7449  max mem: 4873
+[10:53:16.346323] Epoch: [0]  [ 50/458]  eta: 0:10:52  lr: 0.000000  loss: 1.0421 (1.0538)  time: 1.1076  data: 0.4301  max mem: 4873
+[10:54:00.378326] Epoch: [0]  [100/458]  eta: 0:07:24  lr: 0.000000  loss: 1.0553 (1.0537)  time: 0.6517  data: 0.0002  max mem: 4873
+[10:54:36.145089] Epoch: [0]  [150/458]  eta: 0:05:28  lr: 0.000001  loss: 1.0443 (1.0525)  time: 0.6630  data: 0.0001  max mem: 4873
+[10:55:16.001691] Epoch: [0]  [200/458]  eta: 0:04:18  lr: 0.000001  loss: 1.0439 (1.0513)  time: 0.6500  data: 0.0000  max mem: 4873
+[10:55:48.581987] Epoch: [0]  [250/458]  eta: 0:03:13  lr: 0.000001  loss: 1.0466 (1.0522)  time: 0.6510  data: 0.0000  max mem: 4873
+[10:56:21.168194] Epoch: [0]  [300/458]  eta: 0:02:19  lr: 0.000001  loss: 1.0513 (1.0514)  time: 0.6517  data: 0.0000  max mem: 4873
+[10:56:58.758424] Epoch: [0]  [350/458]  eta: 0:01:33  lr: 0.000002  loss: 1.0413 (1.0511)  time: 0.8965  data: 0.2161  max mem: 4873
+[10:57:33.494899] Epoch: [0]  [400/458]  eta: 0:00:48  lr: 0.000002  loss: 1.0382 (1.0515)  time: 0.6537  data: 0.0000  max mem: 4873
+[10:58:06.172355] Epoch: [0]  [450/458]  eta: 0:00:06  lr: 0.000002  loss: 1.0375 (1.0512)  time: 0.6539  data: 0.0001  max mem: 4873
+[10:58:11.498516] Epoch: [0]  [457/458]  eta: 0:00:00  lr: 0.000002  loss: 1.0385 (1.0511)  time: 0.6909  data: 0.0001  max mem: 4873
+[10:58:14.737954] Epoch: [0] Total time: 0:06:19 (0.8295 s / it)
+[10:58:14.739123] Averaged stats: lr: 0.000002  loss: 1.0385 (1.0511)
+Validation:   0%|                                                                                                                                              | 0/161 [00:29<?, ?it/s]
+[10:58:44.515415]
+❌ Error: Dimension out of range (expected to be in range of [-3, 2], but got 3)

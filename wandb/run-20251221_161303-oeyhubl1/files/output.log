@@ -1,0 +1,56 @@
+[16:13:08.713736] base lr: 3.20e-04
+[16:13:08.713736] actual lr: 1.00e-05
+[16:13:08.713736] accumulate grad iterations: 1
+[16:13:08.713736] effective batch size: 8
+[16:13:08.713736] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    decoupled_weight_decay: True
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0.05
+)
+[16:13:08.940566] Resume checkpoint ./data/checkpoint_FSC.pth
+[16:13:08.947022] Start training for 100 epochs   -   rank 0
+Train [e. 1000 - r. 0]:   0%|                                                                                                                                                                                                 | 0/458 [00:00<?, ?it/s]C:\uit_HK5\Cs331\VA-Count\FSC_train.py:324: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+C:\uit_HK5\Cs331\VA-Count\FSC_train.py:336: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+Train [e. 1000 - r. 0]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 458/458 [06:24<00:00,  1.19it/s]
+Val [e. 1000 - r. 0]:   0%|                                                                                                                                                                                                   | 0/161 [00:00<?, ?it/s]C:\uit_HK5\Cs331\VA-Count\FSC_train.py:406: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast():
+Val [e. 1000 - r. 0]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 161/161 [01:40<00:00,  1.60it/s]
+[16:21:23.088554] checkpoint sent to W&B (if)
+[16:21:25.231253] checkpoint sent to W&B (if)
+[16:21:25.233264] [Train Epoch #1000] - MAE:   inf, RMSE:   inf
+[16:21:25.234324] [Val Epoch #1000] - MAE: 16.54, RMSE: 52.53, NAE:  0.32
+Train [e. 1001 - r. 0]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 458/458 [06:18<00:00,  1.21it/s]
+Val [e. 1001 - r. 0]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 161/161 [01:48<00:00,  1.48it/s]
+[16:29:35.357439] checkpoint sent to W&B (if)
+[16:29:35.366161] [Train Epoch #1001] - MAE:   inf, RMSE:   inf
+[16:29:35.367372] [Val Epoch #1001] - MAE: 20.62, RMSE: 57.23, NAE:  0.44
+Train [e. 1002 - r. 0]: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 458/458 [06:31<00:00,  1.17it/s]
+Val [e. 1002 - r. 0]: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 161/161 [01:41<00:00,  1.59it/s]
+[16:37:50.238723] checkpoint sent to W&B (if)
+[16:37:50.240781] [Train Epoch #1002] - MAE:   inf, RMSE:   inf
+[16:37:50.243431] [Val Epoch #1002] - MAE: 26.42, RMSE: 61.56, NAE:  0.63
+Train [e. 1003 - r. 0]:  10%|██████████████████▍                                                                                                                                                                     | 46/458 [01:46<15:53,  2.31s/it]

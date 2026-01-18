@@ -88,15 +88,32 @@ def is_valid_patch(patch, binary_classifier, preprocess, device):
     return prob_label_1.item() > 0.8
 
 # 处理图片的主函数
-def process_images(text_file_path, dataset_path, model, preprocess, binary_classifier, output_folder, device='cpu'):
+def process_images(text_file_path, dataset_path, negative_file_path, model, preprocess, binary_classifier, output_folder, device='cpu'):
     boxes_dict = {}
+    
+    # 读取negative classes文件并进行deduplication
+    negative_classes = set()
+    with open(negative_file_path, 'r', encoding='utf-8') as f:
+        for line in f:
+            parts = line.strip().split('\t')
+            if len(parts) >= 2:
+                # 分割negative classes并添加到集合中
+                classes = parts[1].split(' . ')
+                for cls in classes:
+                    cls = cls.strip()
+                    if cls:
+                        negative_classes.add(cls)
+    
+    # 获取top 5 negative classes（按字母顺序排序后取前5）
+    top_5_negative = sorted(list(negative_classes))[:5]
+    object_prompt = ' . '.join(top_5_negative) + ' .'
+    print(f"Using top 5 negative classes as object prompt: {object_prompt}")
 
-    with open(text_file_path, 'r') as f:
+    with open(text_file_path, 'r', encoding='utf-8') as f:
         for line in f:
             image_name, class_name = line.strip().split('\t')
             print(f"Processing image: {image_name}")
             text_prompt = class_name + ' .'
-            object_prompt = "object ."
             image_path = os.path.join(dataset_path, image_name)
             img = Image.open(image_path).convert("RGB")
             image_source, image = load_image(image_path)
@@ -157,8 +174,9 @@ def main(args):
     # 根据root_path设置路径
     text_file_path = os.path.join(args.root_path, "ImageClasses_FSC147.txt")
     dataset_path = os.path.join(args.root_path, "images_384_VarV2")
+    negative_file_path = os.path.join(args.root_path, "ImageClasses_FSC147_detailed_v6_negative.txt")
     input_json_path = os.path.join(args.root_path, "annotation_FSC147_384.json")
-    output_json_path = os.path.join(args.root_path, "annotation_FSC147_neg.json")
+    output_json_path = os.path.join(args.root_path, "annotation_FSC147_neg_final.json")
     output_folder = os.path.join(args.root_path, "annotated_images_n")
     
     os.makedirs(output_folder, exist_ok=True)
@@ -167,7 +185,7 @@ def main(args):
     model = load_model(model_config, model_weights, device=device)
 
     # 处理图片并生成边界框
-    boxes_dict = process_images(text_file_path, dataset_path, model, preprocess, binary_classifier, output_folder, device=device)
+    boxes_dict = process_images(text_file_path, dataset_path, negative_file_path, model, preprocess, binary_classifier, output_folder, device=device)
 
     # 更新JSON文件
     with open(input_json_path, 'r') as f:
