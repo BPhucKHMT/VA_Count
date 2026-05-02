@@ -54,7 +54,7 @@ def get_args_parser():
     parser.add_argument('--device', default='cuda',
                         help='device to use for training / testing')
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--resume', default='./data/checkpoint__finetuning_yolo.pth',
+    parser.add_argument('--resume', default='./data/checkpoint__finetuning_dino_prompt.pth',
                         help='resume from checkpoint')
     parser.add_argument('--external', action='store_true',
                         help='Set this param for using external exemplars')

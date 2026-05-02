@@ -49,3 +49,15 @@ visualizations/
 visualizations_test/
 GroundingDINO/
 yolov8x-worldv2.pt
+
+# Logs & runtime artifacts
+*.log
+logs/
+wandb/
+output/
+output_transfer/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/

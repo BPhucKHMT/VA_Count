@@ -1,304 +1,230 @@
-# VA-Count: Zero-shot Object Counting with Good Exemplars
-# This project based on this paper with new improvements
+# VA-Count (Customized): Đếm đối tượng Zero-shot với Good Exemplars
 
 
-## 📋 Table of Contents
-- [News](#news)
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Environment Setup](#environment-setup)
-- [Dataset Preparation](#dataset-preparation)
-- [Model Checkpoints](#model-checkpoints)
-- [Quick Start](#quick-start)
-- [Training](#training)
-- [Inference](#inference)
-- [Citation](#citation)
-- [Acknowledgement](#acknowledgement)
 
-## 🚀 News
-- **[2024/XX/XX]**: Code and pretrained models released
-- **[2024/XX/XX]**: Paper accepted to ECCV 2024
+---
 
-## 📖 Overview
-VA-Count is a zero-shot object counting method that leverages good exemplars for accurate counting. The model combines:
-- Vision Transformer backbone (MAE pretrained)
-- Grounding DINO for exemplar detection
-- Binary classifier for single/multiple object detection
-- Cross-attention mechanism for feature matching
+## 1) Giới thiệu nhanh
 
-## 📁 Project Structure
+Dự án này mở rộng từ paper **“Zero-shot Object Counting with Good Exemplars” (ECCV 2024)**.
+Mục tiêu: đếm số lượng đối tượng trong ảnh bằng cách tận dụng exemplar tốt (positive/negative), kết hợp backbone ViT/MAE và cơ chế cross-attention.
 
-```
+Trong repo hiện tại, bạn đã bổ sung các nhánh tạo exemplar bằng:
+- **Grounding DINO**
+- **YOLO World**
+- Có/không có prompt mô tả class
+
+Điểm mạnh của pipeline là linh hoạt trong cách tạo annotation exemplar để fine-tune và so sánh chất lượng đếm.
+
+---
+
+## 2) Minh hoạ hai nhánh prompt trong repo
+
+### Grounding DINO + Prompt
+![Grounding DINO Prompt](public/Dino_prompt.png)
+
+### YOLO + Prompt
+![YOLO Prompt](public/Yolo_prompt.png)
+
+---
+
+## 3) Kiến trúc thư mục chính
+
+```text
 VA-Count/
-├── data/                           # Dataset directory
-│   ├── checkpoint.pth              # Main model checkpoint
-│   ├── checkpoint_FSC.pth          # FSC147 trained checkpoint
-│   ├── checkpoint__finetuning_dino_prompt.pth    # DINO with prompt finetuned
-│   ├── checkpoint__finetuning_yolo.pth           # YOLO with prompt finetuned
-│   ├── checkpoint__finetuning_yolo_noprompt.pth  # YOLO without prompt finetuned
+├── data/
 │   ├── FSC147/
-│   │   ├── images_384_VarV2/      # Resized images (384x384)
-│   │   ├── gt_density_map_adaptive_384_VarV2/  # Ground truth density maps
-│   │   ├── annotation_FSC147_384.json          # Original annotations
-│   │   ├── annotation_FSC147_pos.json          # Positive exemplars (DINO without prompt)
-│   │   ├── annotation_FSC147_pos_prompt.json   # Positive exemplars (DINO with prompt)
-│   │   ├── annotation_FSC147_neg.json          # Negative exemplars
-│   │   ├── annotation_FSC147_neg_prompt.json   # Negative exemplars (DINO with prompt)
-│   │   ├── annotation_FSC147_neg_yolo.json     # YOLO negative annotations
-│   │   ├── annotation_FSC147_neg_yolo_prompt.json  # YOLO negative with prompts
-│   │   ├── Train_Test_Val_FSC_147.json         # Official train/val/test split
-│   │   ├── ImageClasses_FSC147.txt             # Image class labels
-│   │   ├── ImageClasses_FSC147_detailed_v6_pos.txt # Rich prompt for positive
-│   │   ├── ImageClasses_FSC147_detailed_v6_neg.txt # Rich prompt for negative
-│   │   ├── train.txt               # Training image list
-│   │   ├── val.txt                 # Validation image list
-│   │   └── test.txt                # Test image list
-│   ├── CARPK/                      # CARPK dataset (optional)
-│   └── out/                        # Output directory
-│       ├── classify/               # Classifier checkpoints
-│       ├── results_base/           # Test results
-│       └── pre_4_dir/              # Pretrain checkpoints
-├── GroundingDINO/                  # Grounding DINO submodule
-│   ├── groundingdino/
-│   ├── weights/
-│   │   └── groundingdino_swint_ogc.pth
-│   └── ...
-├── util/                           # Utility functions
-│   ├── FSC147.py                  # Dataset loader
-│   ├── misc.py                    # Miscellaneous utilities
-│   └── ...
-├── models_crossvit.py             # Cross-ViT model
-├── models_mae_cross.py            # MAE with cross-attention
-├── models_mae_noct.py             # MAE without counting token
-├── FSC_pretrain.py                # Pretraining script
-├── FSC_train.py                   # Training script
-├── FSC_test.py                    # Testing script
-├── biclassify.py                  # Binary classifier training
-├── datasetmake.py                 # Dataset preparation
-├── grounding_pos.py               # Generate positive exemplars
-├── grounding_neg.py               # Generate negative exemplars
-├── yolo_pos_withPrompt.py         # YOLO with prompts (positive)
-├── yolo_neg.py                    # YOLO for negative examples
-├── pos_yolo_withoutPrompt.py      # YOLO without prompts
-├── demo_app_advanced.py           # Advanced demo application
-├── demo_inference.py              # Basic inference demo
-├── demo_pipeline_advanced.py      # Advanced pipeline demo
-├── demo_visualization.py          # Visualization demo
-├── inference_official.py          # Official inference script
-├── requirements.txt               # Python dependencies
-└── README.md                      # This file
+│   │   ├── images_384_VarV2/
+│   │   ├── gt_density_map_adaptive_384_VarV2/
+│   │   ├── annotation_FSC147_384.json
+│   │   ├── annotation_FSC147_pos*.json / neg*.json / yolo*.json
+│   │   ├── Train_Test_Val_FSC_147.json
+│   │   ├── train.txt, val.txt, test.txt
+│   └── out/
+│       ├── classify/
+│       ├── results_base/
+│       └── pre_4_dir/
+├── GroundingDINO/                     # submodule/model cho grounding
+├── util/                              # dataset loader + tiện ích
+├── models_crossvit.py                 # model cross-ViT
+├── models_mae_cross.py                # MAE + cross attention
+├── models_mae_noct.py                 # MAE variant
+├── biclassify.py                      # train binary classifier
+├── datasetmake.py                     # tạo dữ liệu cho classifier
+├── grounding_pos.py / grounding_neg.py
+├── yolo_pos_withPrompt.py / yolo_neg.py / pos_yolo_withoutPrompt.py
+├── FSC_pretrain.py                    # pretrain
+├── FSC_train.py                       # fine-tune
+├── FSC_test.py                        # test/eval
+├── demo_app_advanced.py               # app demo
+├── demo_inference.py                  # demo infer nhanh
+└── inference_official.py              # script infer chuẩn
 ```
 
-## 🔧 Environment Setup
+---
 
-### Prerequisites
-- Python 3.8+
-- CUDA 11.3+ (for GPU support)
-- PyTorch 1.12+
+## 4) Luồng hoạt động tổng thể (để nhớ nhanh)
 
-### Installation
+### 4.1 Luồng dữ liệu
+1. **Input dữ liệu FSC147** (ảnh + density map + split + class text).
+2. **Sinh exemplar annotation**:
+   - DINO (pos/neg, có thể có prompt).
+   - YOLO (pos/neg, có/không prompt).
+3. **(Tuỳ chọn) Train binary classifier** để lọc/đánh giá exemplar.
+4. **(Tuỳ chọn) Pretrain** backbone theo cấu hình repo.
+5. **Fine-tune model đếm** bằng file annotation đã chọn.
+6. **Test/Inference** để lấy MAE/RMSE hoặc kết quả trực quan.
 
-1. **Clone the repository**
+### 4.2 Luồng train/infer theo script
+- `datasetmake.py` → chuẩn bị dữ liệu classifier
+- `biclassify.py` → train classifier
+- `grounding_pos.py`, `grounding_neg.py` (hoặc nhánh YOLO) → sinh annotation exemplar
+- `FSC_pretrain.py` (optional) → pretrain
+- `FSC_train.py` → fine-tune với annotation cụ thể
+- `FSC_test.py` / `demo_*` / `inference_official.py` → đánh giá và demo
+
+> Mẹo nhớ nhanh:
+> **“Chuẩn bị data → sinh exemplar → train/fine-tune → test/demo”**
+
+---
+
+## 5) Cài đặt môi trường
+
+## Yêu cầu
+- Python 3.8+ (khuyến nghị dùng môi trường riêng)
+- CUDA tương thích với bản PyTorch bạn cài
+- Git
+
+## Cài đặt
 ```bash
-git clone https://github.com/yourusername/VA-Count.git
+git clone <repo-url>
 cd VA-Count
-```
 
-2. **Create conda environment**
-```bash
-conda create -n vacount python=3.12
+conda create -n vacount python=3.12 -y
 conda activate vacount
-```
 
-3. **Install PyTorch** (example for CUDA 11.3)
-```bash
-pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
-```
+# Cài torch theo CUDA của máy (ví dụ)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
 
-4. **Install Grounding DINO**
-```bash
-cd GroundingDINO
-pip install -e .
-cd ..
-```
+# Cài GroundingDINO
+pip install -e ./GroundingDINO
 
-5. **Install other dependencies**
-```bash
+# Cài dependencies còn lại
 pip install -r requirements.txt
 ```
 
-6. **Download Grounding DINO weights**
+---
+
+## 6) Chuẩn bị dữ liệu & model weights
+
+## Dữ liệu FSC147
+Đặt dữ liệu vào:
+- `./data/FSC147/images_384_VarV2/`
+- `./data/FSC147/gt_density_map_adaptive_384_VarV2/`
+- Các file annotation/split tương ứng.
+
+Nếu chưa có `train.txt/val.txt/test.txt`, tạo từ `Train_Test_Val_FSC_147.json` (theo logic script cũ).
+
+## Weights cần thiết
+- Grounding DINO weights: `GroundingDINO/weights/groundingdino_swint_ogc.pth`
+- Checkpoint đếm (`checkpoint_FSC.pth` hoặc checkpoint bạn fine-tune)
+- MAE pretrain weights (nếu dùng pretrain/fine-tune từ đầu)
+
+---
+
+## 7) Quick Start (chạy nhanh)
+
+## A. Test nhanh mô hình đếm
 ```bash
-mkdir -p GroundingDINO/weights
-cd GroundingDINO/weights
-wget https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
-cd ../..
-```
-
-## 📊 Dataset Preparation
-
-### FSC147 Dataset
-
-1. **Download FSC147**
-   - Download from [FSC147 GitHub](https://github.com/cvlab-stonybrook/LearningToCountEverything)
-   - Extract to `./data/FSC147/`
-
-2. **Prepare data splits**
-```bash
-# Create train/val/test split files
-python -c "
-import json
-from pathlib import Path
-
-json_file = './data/FSC147/Train_Test_Val_FSC_147.json'
-with open(json_file, 'r') as f:
-    data = json.load(f)
-
-for split in ['train', 'val', 'test']:
-    with open(f'./data/FSC147/{split}.txt', 'w') as f:
-        for item in data[split]:
-            f.write(f'{item}\n')
-"
-```
-
-### Expected Directory Structure
-```
-./data/FSC147/
-├── images_384_VarV2/
-│   ├── 2.jpg
-│   ├── 3.jpg
-│   └── ...
-├── gt_density_map_adaptive_384_VarV2/
-│   ├── 2.npy
-│   ├── 3.npy
-│   └── ...
-├── annotation_FSC147_384.json
-├── Train_Test_Val_FSC_147.json
-├── ImageClasses_FSC147.txt
-├── train.txt
-├── val.txt
-└── test.txt
-```
-
-## 💾 Model Checkpoints
-
-### Download Pretrained Models (Original paper)
-
-1. **Main counting model** (required for inference)
-   - Download from [Baidu Disk](https://pan.baidu.com/s/11sbdDYLDfTOIPx5pZvBpmw?pwd=paeh) (Password: `paeh`)
-   - Save to `./data/checkpoint_FSC.pth`
-
-2. **Binary classifier** (optional, for exemplar selection)
-   - Download from [Baidu Disk](https://pan.baidu.com/s/1fOF0giI3yQpvGTiNFUI7cQ?pwd=psum) (Password: `psum`)
-   - Save to `./data/out/classify/`
-
-3. **MAE pretrained backbone** (required for training)
-   - Download from official MAE repository
-   - Save to `./weights/mae_pretrain_vit_base_full.pth`
-
-## 🚀 Quick Start
-
-### Advanced Demo with Visualization
-
-```bash
-# Run advanced demo with visual outputs
-python demo_app_advanced.py \
-    --resume ./data/checkpoint_FSC.pth \
-    --data_path ./data/FSC147 \
-    --output_dir ./demo_outputs \
-    --visualize
-```
-
-### Official Testing
-
-```bash
-# Test on FSC147 test set
 python FSC_test.py \
-    --output_dir ./data/out/results_base \
-    --resume ./data/checkpoint_FSC.pth \
-    --data_path ./data/FSC147 \
-    --split test
+  --output_dir ./data/out/results_base \
+  --resume ./data/checkpoint_FSC.pth \
+  --data_path ./data/FSC147 \
+  --split test
 ```
 
-## 🎯 Training
-
-### Step 1: Prepare Binary Classifier (Optional)
-
+## B. Chạy demo app
 ```bash
-# Generate dataset for classifier
+python demo_app_advanced.py \
+  --resume ./data/checkpoint_FSC.pth \
+  --data_path ./data/FSC147 \
+  --output_dir ./demo_outputs \
+  --visualize
+```
+
+> Lưu ý: trong README cũ có typo `demp_app_advaced.py`; file đúng trong repo là `demo_app_advanced.py`.
+
+---
+
+## 8) Quy trình train đầy đủ (tham khảo)
+
+## Bước 1: Tạo dữ liệu classifier (optional)
+```bash
 python datasetmake.py --data_path ./data/FSC147
-
-# Train binary classifier
-python biclassify.py \
-    --data_path ./data/FSC147 \
-    --output_dir ./data/out/classify \
-    --epochs 100
+python biclassify.py --data_path ./data/FSC147 --output_dir ./data/out/classify --epochs 100
 ```
 
-### Step 2: Generate Exemplars
-
+## Bước 2: Sinh exemplar annotation
+### Nhánh DINO
 ```bash
-# Generate positive exemplars using Grounding DINO
 python grounding_pos.py --root_path ./data/FSC147/
-
-# Generate negative exemplars
 python grounding_neg.py --root_path ./data/FSC147/
 ```
 
-Alternative: Use YOLO for exemplar generation
+### Nhánh YOLO
 ```bash
-# With prompts
 python yolo_pos_withPrompt.py --root_path ./data/FSC147/
-
-# Without prompts
 python pos_yolo_withoutPrompt.py --root_path ./data/FSC147/
+python yolo_neg.py --root_path ./data/FSC147/
 ```
 
-### Step 3: Pretraining (Optional)
-
+## Bước 3: Pretrain (optional)
 ```bash
-# Pretrain the model
 python FSC_pretrain.py \
-    --data_path ./data/FSC147 \
-    --output_dir ./data/out/pre_4_dir \
-    --resume ./weights/mae_pretrain_vit_base_full.pth \
-    --epochs 300 \
-    --batch_size 8 \
-    --lr 1e-4
+  --data_path ./data/FSC147 \
+  --output_dir ./data/out/pre_4_dir \
+  --resume ./weights/mae_pretrain_vit_base_full.pth \
+  --epochs 300 --batch_size 8 --lr 1e-4
 ```
 
-### Step 4: Fine-tuning
-
+## Bước 4: Fine-tune
 ```bash
-# Fine-tune with positive exemplars
 python FSC_train.py \
-    --data_path ./data/FSC147 \
-    --anno_file annotation_FSC147_pos.json \
-    --output_dir ./data/out/finetune_pos \
-    --resume ./data/out/pre_4_dir/checkpoint-latest.pth \
-    --epochs 500 \
-    --batch_size 8 \
-    --lr 1e-5
+  --data_path ./data/FSC147 \
+  --anno_file annotation_FSC147_pos.json \
+  --output_dir ./data/out/finetune_pos \
+  --resume ./data/out/pre_4_dir/checkpoint-latest.pth \
+  --epochs 500 --batch_size 8 --lr 1e-5
 ```
 
-## 🔍 Inference
+Bạn có thể đổi `--anno_file` để so sánh các biến thể:
+- `annotation_FSC147_pos.json`
+- `annotation_FSC147_pos_prompt.json`
+- `annotation_FSC147_neg*.json`
+- `annotation_FSC147_*yolo*.json`
 
+---
 
-### Batch Inference
+## 9) So sánh nhanh các nhánh annotation (gợi ý thực nghiệm)
 
-```bash
-python FSC_test.py
-```
+- **DINO + prompt**: thường semantic tốt hơn khi class khó mô tả bằng box đơn thuần.
+- **YOLO + prompt**: tốc độ/độ ổn định tốt ở vài lớp phổ biến.
+- **YOLO không prompt**: baseline để thấy mức đóng góp của prompt.
 
-### APP
+Nên cố định seed + split + checkpoint khởi tạo khi benchmark để so sánh công bằng.
 
-```bash
-streamlit run demp_app_advaced.py
-```
+---
 
+## 10) Lỗi thường gặp
 
+- **Không load được GroundingDINO**: kiểm tra `pip install -e ./GroundingDINO` và file weights.
+- **Sai đường dẫn data**: kiểm tra `--data_path` và tên thư mục FSC147.
+- **Thiếu checkpoint**: kiểm tra `--resume` trỏ đúng file `.pth`.
+- **CUDA mismatch**: cài lại torch đúng phiên bản CUDA driver.
 
-## 📝 Citation
+---
+
+## 11) Citation
 
 ```bibtex
 @inproceedings{zhu2024zero,
@@ -309,19 +235,16 @@ streamlit run demp_app_advaced.py
 }
 ```
 
-## 🙏 Acknowledgement
+---
 
-This project is based on:
-- [CounTR](https://github.com/Verg-Avesta/CounTR) - Base counting architecture
-- [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) - Exemplar detection
-- [MAE](https://github.com/facebookresearch/mae) - Vision Transformer backbone
+## 12) Acknowledgement
 
-We are very grateful for these excellent works!
+- [CounTR](https://github.com/Verg-Avesta/CounTR)
+- [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
+- [MAE](https://github.com/facebookresearch/mae)
 
-## 📧 Contact
+---
 
-If you have any questions, please contact: jsj_zhl@whut.edu.cn
+## 13) License
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License. Xem file [LICENSE](LICENSE).
