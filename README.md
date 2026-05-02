@@ -11,10 +11,13 @@ Mục tiêu: đếm số lượng đối tượng trong ảnh bằng cách tận
 
 Trong repo hiện tại, bạn đã bổ sung các nhánh tạo exemplar bằng:
 - **Grounding DINO**
-- **YOLO World**
-- Có/không có prompt mô tả class
+- **YOLO-World**
+- Có/không có **prompt mô tả class**
 
-Điểm mạnh của pipeline là linh hoạt trong cách tạo annotation exemplar để fine-tune và so sánh chất lượng đếm.
+### Điểm cải tiến chính của phiên bản này
+- **Prompt giúp tăng khả năng zero-shot detection** cho cả Grounding DINO và YOLO (đặc biệt với class khó, ít xuất hiện, hoặc mô tả hình thái phức tạp).
+- **YOLO-World giúp tăng tốc inference rất đáng kể** so với pipeline grounding nặng hơn, trong khi mức suy giảm độ chính xác thường **không lớn** trong đa số kịch bản thực nghiệm.
+- Pipeline linh hoạt cho phép benchmark rõ ràng giữa `prompt` vs `no-prompt`, và giữa `DINO` vs `YOLO-World` để chọn cấu hình phù hợp mục tiêu tốc độ/chính xác.
 
 ---
 
@@ -23,7 +26,7 @@ Trong repo hiện tại, bạn đã bổ sung các nhánh tạo exemplar bằng:
 ### Grounding DINO + Prompt
 ![Grounding DINO Prompt](public/Dino_prompt.png)
 
-### YOLO + Prompt
+### YOLO-World + Prompt
 ![YOLO Prompt](public/Yolo_prompt.png)
 
 ---
@@ -207,11 +210,14 @@ Bạn có thể đổi `--anno_file` để so sánh các biến thể:
 
 ## 9) So sánh nhanh các nhánh annotation (gợi ý thực nghiệm)
 
-- **DINO + prompt**: thường semantic tốt hơn khi class khó mô tả bằng box đơn thuần.
-- **YOLO + prompt**: tốc độ/độ ổn định tốt ở vài lớp phổ biến.
-- **YOLO không prompt**: baseline để thấy mức đóng góp của prompt.
+- **DINO + prompt**: thường cải thiện chất lượng semantic matching, giúp zero-shot detect tốt hơn khi đối tượng khó mô tả bằng box đơn thuần.
+- **YOLO-World + prompt**: cân bằng rất tốt giữa semantic và tốc độ; trong nhiều trường hợp cho **tăng tốc inference rõ rệt** nhưng **độ chính xác chỉ giảm nhẹ**.
+- **YOLO-World không prompt**: baseline để đo trực tiếp mức đóng góp của prompt vào zero-shot detection.
 
-Nên cố định seed + split + checkpoint khởi tạo khi benchmark để so sánh công bằng.
+Nên cố định seed + split + checkpoint khởi tạo khi benchmark để so sánh công bằng theo 2 trục:
+1. **Accuracy** (MAE/RMSE)
+2. **Latency/Throughput** (thời gian infer mỗi ảnh hoặc FPS)
+
 
 ---
 
